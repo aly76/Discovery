@@ -1,0 +1,11 @@
+steps:
+ - label: Test
+   command: echo Hello World
+
+ - label: Run shell script
+   command: script.sh
+  
+ - plugins:
+    - detect-clowns#v2.0.0: ~
+    - aly76/discovery#3e3a891: ~
+       
