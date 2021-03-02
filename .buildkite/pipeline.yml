@@ -1,11 +1,14 @@
 steps:
- - label: Test
-   command: echo Hello World
-
- - label: Run shell script
-   command: script.sh
-  
- - plugins:
-    - detect-clowns#v2.0.0: ~
-    - aly76/discovery#3e3a891: ~
-       
+  - label: ':docker: Test Docker'
+    commands:
+      - echo "--- Hello World"
+      - sfdx -v
+      - sfdx plugins
+    plugins:
+      - docker#v3.5.0:
+          image: "dxatscale/sfpowerscripts:latest"
+          mount-ssh-agent: false
+          shell:
+            - '/bin/bash'
+            - '-e'
+            - '-c'
